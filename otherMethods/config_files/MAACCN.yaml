@@ -1,0 +1,26 @@
+dataset_type: fan
+fan_section: s1
+use_cuda: True
+device: cuda
+# Data Parameters
+use_fft: False
+use_hilbert_envelope: False
+use_domain_weight: True
+data_length: 2560
+signal_len: 1024 # 裁剪长度，匹配模型输入
+use_angular_resample: True
+unified_Os: 350
+
+# Training Parameters
+batch_size: 64
+steps: 100
+checkpoint_freq: 1
+lr: 0.001
+early_stopping_patience: 10
+early_stop: True
+
+# Model Hyperparameters
+model:
+  num_classes: 2
+  digit_caps_dim: 16
+  routing_iterations: 3

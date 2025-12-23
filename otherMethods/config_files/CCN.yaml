@@ -1,0 +1,28 @@
+reference: Causal Consistency Network
+dataset_type: fan
+fan_section: sec00
+dataset_debug: False
+use_cuda: True
+device: cuda
+use_angular_resample: True
+use_fft: False
+use_hilbert_envelope: True
+use_domain_weight: True
+data_length: 2560
+unified_Os: 350
+batch_size: 64
+num_classes: 2
+steps: 100
+checkpoint_freq: 1
+lr: 0.0001
+lbda_cc: 1
+lbda_ct: 1
+
+
+
+
+
+
+
+
+
