@@ -46,31 +46,31 @@ data_length: 2560 # 每个样本的长度（时间步数）。
 unified_Os: 350 # 转轴每转一圈采样点的数目, 每转采样350点，用于标准化转速变化的数据。
 
 # Dropout rates
-dropout: 0.4                 # General dropout rate (legacy, not used in the new structure).
-dropout_cbp: 0.5              # Dropout rate applied to features before Compact Bilinear Pooling.
-dropout_classifier: 0.3       # Dropout rate applied to the fused feature vector before the final classifier.
+dropout: 0.2                 # General dropout rate (legacy, not used in the new structure).
+dropout_cbp: 0.0              # Dropout rate applied to features before Compact Bilinear Pooling.
+dropout_classifier: 0.2       # Dropout rate applied to the fused feature vector before the final classifier.
 
 # training
 #batch_size: 64 #128 每批数据量。
-batch_size: 16  # 减小批量大小
+batch_size: 16 # 减小批量大小
 
 num_classes: 2 # 类别数目，3或者4，当为3时，排除滚动体故障类别
 steps: 2500
-steps_step1: 2400
+steps_step1: 1500
 #增加早停机制
-early_stop_patience_step1: 10
-early_stop_patience_step2: 80
+early_stop_patience_step1: 20
+early_stop_patience_step2: 100
 early_stop: True
 collapse_patience: 10 # 特征坍缩自动检测步数
 warmup_steps: 50
-step1_eval_interval: 10 # step1多少次进行一次eval
+step1_eval_interval: 20 # step1多少次进行一次eval
 step2_eval_interval: 1 # step2多少次进行一次eval
 t_sne: false #是否绘制T-SNE图
 
 #lr: 0.0001 # 初始学习率，较小值适合精细调优。
 lr_step1: 0.0002 # Learning rate for the Step 1 optimizer.
 lr_step2: 0.0001  # Learning rate for the Step 2 optimizer.
-lr_rate_step2_encoder: 0
+lr_rate_step2_encoder: 0.0001
 weight_decay: 1e-05
 predict_threshold: 0.5
 # 损失函数权重
@@ -78,13 +78,13 @@ predict_threshold: 0.5
 
 # --- Loss Function Weights (Lambdas) ---
 # Loss function settings
-focal_loss_gamma: 3      # Gamma parameter for Focal Loss. Set to 0 to behave like Cross-Entropy.
+focal_loss_gamma: 1      # Gamma parameter for Focal Loss. Set to 0 to behave like Cross-Entropy.
 # Step 1: Disentanglement Pre-training Loss Weights
 lambda_cls: 1           # 增强
 lambda_conf: 0.08        # 混淆
 
 # Step 2: Task Fine-tuning Loss Weights
-lambda_rec: 0.1               # Weight for the reconstruction loss (ensures features retain original information).  重构 保持信号语义
+lambda_rec: 0.2               # Weight for the reconstruction loss (ensures features retain original information).  重构 保持信号语义
 lambda_orth: 0.1              # Weight for the orthogonality constraint loss (enforces disentanglement between z_h and z_m).  正交约束 强化因果解耦
 # This parameter is from a previous version but kept for compatibility.
 lambda_dom: 1.0               # GRL lambda for domain adversarial training (used by the legacy DomainDiscriminator).
@@ -93,8 +93,8 @@ use_learning_rate_sheduler: true
 cos: False #cosine连续递减方案性能太差
 # schedule: [20, 50, 100, 150]
 # gamma: 0.1 #0.5
-schedule: 500  # 每schedule步降低学习率。
-gamma: 0.75 # 0.25 #0.5 # 学习率衰减因子（每次乘以0.1）。
+schedule: 300  # 每schedule步降低学习率。
+gamma: 0.9 # 0.25 #0.5 # 学习率衰减因子（每次乘以0.1）。
 loss: focal loss
 
 # 保存的最低评价指标
@@ -116,7 +116,7 @@ ECA_gamma: 2                  # Gamma parameter for calculating adaptive kernel 
 ECA_b: 1                      # b parameter for calculating adaptive kernel size in ECA.
 
 # Compact Bilinear Pooling (CBP)
-cbp_output_dim: 2048          # The output dimension of the CBP feature fusion layer.
+cbp_output_dim: 1024          # The output dimension of the CBP feature fusion layer.
 
 # Noise injection for regularization in Step 2
 sigma_noise: 0.1              # Standard deviation of Gaussian noise added to the machine features (z_m).
