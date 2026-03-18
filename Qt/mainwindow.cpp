@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->setWindowTitle(tr("智能声学故障诊断系统"));
     ui->tableWidget_results->setColumnCount(4);
     ui->tableWidget_results->setHorizontalHeaderLabels(QStringList() << "文件名" << "分析状态" << "诊断结果" << "置信度");
     ui->tableWidget_results->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
