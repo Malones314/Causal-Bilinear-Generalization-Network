@@ -9,6 +9,16 @@ Download the .pth file from the “[trained models](https://drive.google.com/dri
 
 The reproduction codes for the comparative methods in the experimental section are stored in: otherMethods.
 
+# Citation
+```
+@article{zhai2026acoustic,
+  title={Acoustic fault diagnosis in heterogeneous environments via causal disentanglement},
+  author={Zhai, Ruichen and Wei, Zhongliang and Su, Chang},
+  journal={Measurement Science and Technology},
+  year={2026}
+}
+```
+
 # 界面设计
 我们为DGCDN做了简单的界面Demo(存放于Qt中)，具体实现了如下功能：
 1. 使用选择的预训练好的模型对选择的文件夹进行故障诊断
