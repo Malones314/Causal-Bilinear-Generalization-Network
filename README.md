@@ -1,4 +1,4 @@
-<img width="83" height="80" alt="image" src="https://github.com/user-attachments/assets/f71016dc-207b-44d5-b4cc-ea23fb9ae2e7" /># Causal-Bilinear-Generalization-Network
+# Causal-Bilinear-Generalization-Network
 
 在“[trained models](https://drive.google.com/drive/folders/17fMiulPXF-7IOFExEVd99Z7xuP_eXLP3?usp=sharing)”中下载.pth文件，将文件地址导入到loadCheckpointTest.py中，即可查看测试结果，所用数据集为[MIMII DG](https://zenodo.org/records/6529888)和[MIMII](https://zenodo.org/record/3384388)， https://drive.google.com/drive/folders/17Kz4HvcyOePa35TeIww1ZQHgzvdyPY7Q?usp=sharing (已经做好了预处理)。
 
